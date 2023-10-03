@@ -9,7 +9,8 @@ import PropTypes from "prop-types";
  */
 export const Card = ({ children, cardTitle, status }) => {
   return (
-    <div className="w-full md:w-[500px] mb-8">
+    //change md:w-[500px] for a bigger card
+    <div className="w-full md:w-[500px] mb-8"> 
       <div className="flex items-center">
         <div className="pb-2 pr-2 text-2xl font-bold tracking-tight text-gray-700">{cardTitle}</div>
         <div

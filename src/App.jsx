@@ -12,6 +12,7 @@ function App() {
   const [showAlert] = useState(false); //TODO set to false by default
   //TODO Set all the callbacks from ChoiceListBox components and state to update the interface
   const [showContaminent2, setShowContaminent2] = useState(false);
+  const [callDxp] = useState(null);
 
   const contaniment1Handler = (v) => {
     console.log(v);
@@ -58,7 +59,7 @@ function App() {
           </div>
         </Card>
 
-        <Card cardTitle={"Results"}>
+        <Card cardTitle={"Results"} status={callDxp}>
           <div>
             <div className="flex flex-row justify-between p-2">
               <div>RCC code:</div>
