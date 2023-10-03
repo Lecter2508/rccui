@@ -9,7 +9,7 @@ const CONTAMINENT2 = ["Select...", ...Array.from({ length: 11 }, (_, index) => `
 const PERCENTAGE = Array.from({ length: 11 }, (_, index) => `${index * 10} %`);
 
 function App() {
-  const [showAlert] = useState(false); //TODO set to false by default
+  const [showAlert] = useState(false);
   //TODO Set all the callbacks from ChoiceListBox components and state to update the interface
   const [showContaminent2, setShowContaminent2] = useState(false);
   const [callDxp] = useState(null);
