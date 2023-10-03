@@ -11,6 +11,17 @@ const PERCENTAGE = Array.from({ length: 11 }, (_, index) => `${index * 10} %`);
 function App() {
   const [showAlert] = useState(false); //TODO set to false by default
   //TODO Set all the callbacks from ChoiceListBox components and state to update the interface
+  const [showContaminent2, setShowContaminent2] = useState(false);
+
+  const contaniment1Handler = (v) => {
+    console.log(v);
+    if (v === "Select...") {
+      setShowContaminent2(false);
+    } else {
+      setShowContaminent2(true);
+    }
+    //TODO insert rest of the logic
+  };
 
   return (
     <div className="grid h-screen md:place-items-center bg-gray-100 justify-center">
@@ -30,18 +41,20 @@ function App() {
             <div className="flex flex-row justify-between items-center p-2">
               <div>Contaminent 1: </div>
               <div className="flex flex-row gap-4">
-                <ChoiceListbox choices={CONTAMINENT1} width={"w-40"} />
+                <ChoiceListbox choices={CONTAMINENT1} callback={contaniment1Handler} width={"w-40"} />
                 <ChoiceListbox choices={PERCENTAGE} width={"w-28"} />
               </div>
             </div>
 
-            <div className="flex flex-row justify-between items-center p-2 mb-2">
-              <div>Contaminent 2: </div>
-              <div className="flex flex-row gap-4">
-                <ChoiceListbox choices={CONTAMINENT2} width={"w-40"} />
-                <ChoiceListbox choices={PERCENTAGE} width={"w-28"} />
+            {showContaminent2 && (
+              <div className="flex flex-row justify-between items-center p-2 mb-2">
+                <div>Contaminent 2: </div>
+                <div className="flex flex-row gap-4">
+                  <ChoiceListbox choices={CONTAMINENT2} width={"w-40"} />
+                  <ChoiceListbox choices={PERCENTAGE} width={"w-28"} />
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </Card>
 
