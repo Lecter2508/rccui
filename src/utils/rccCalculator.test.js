@@ -13,3 +13,9 @@ test("Testing calculations", () => {
   expect(rccCalc(contaminentGravel[1], contaminentGravel[6], 25, 25).code).toBe(3);
   expect(rccCalc(contaminentGravel[1], contaminentGravel[6], 40, 40).code).toBe(0);
 });
+
+test("Testing select... case", () => {
+  expect(rccCalc(contaminentGravel[0], undefined, 25).code).toBe(6);
+  expect(rccCalc(contaminentGravel[0], undefined, 100).code).toBe(6);
+  expect(rccCalc(contaminentGravel[0], contaminentGravel[0], 100, 100).code).toBe("Coverage is above 100%"); //TODO, maybe change it so it stays at code 6, to be discussed.
+});

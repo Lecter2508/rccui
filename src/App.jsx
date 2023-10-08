@@ -66,6 +66,10 @@ function App() {
   };
 
   const resetButtonHandler = () => {
+    setContaminent1(undefined);
+    setContaminent2(undefined);
+    setCoverage1(0);
+    setCoverage2(0);
     setResetListBox(true);
     setShowContaminent2(false);
     setRccCode(6);
@@ -139,7 +143,7 @@ function App() {
             )}
 
             <div className="p-2">
-              <CustomButton title={"Reset Contaminent(s)"} onClickCallback={resetButtonHandler} />
+              <CustomButton title={showContaminent2 ? "Reset Contaminents" : "Reset Contaminent"} onClickCallback={resetButtonHandler} />
             </div>
           </div>
         </Card>
