@@ -6,7 +6,7 @@ export type Contaminent = {
 };
 
 export const contaminentGravel = [
-  {description: "Select...", code: 6, maxCrosswind: 36, callDxp: false},
+  { description: "Select...", code: 6, maxCrosswind: 36, callDxp: false },
   { description: "Frost", code: 5, maxCrosswind: 30, callDxp: false },
   { description: "Dry Snow 1.0 in or less depth: -15ºC and Colder OAT", code: 5, maxCrosswind: 30, callDxp: false },
   { description: "Dry Snow 1.0 in or less depth: Warmer than -15ºC OAT", code: 4, maxCrosswind: 25, callDxp: false },
@@ -25,7 +25,7 @@ export const contaminentGravel = [
 ];
 
 export const contaminentPaved = [
-  {description: "Select...", code: 6, maxCrosswind: 36, callDxp: false},
+  { description: "Select...", code: 6, maxCrosswind: 36, callDxp: false },
   { description: "Frost", code: 5, maxCrosswind: 30 },
   { description: "Dry Snow or Wet Snow (Any depth) over 100% Compacted Snow", code: 3, maxCrosswind: 20, callDxp: true },
   { description: "Dry Snow more than 1.0 in depth", code: 3, maxCrosswind: 20, callDxp: true },

@@ -7,10 +7,12 @@ export const rccCalc = (c1: Contaminent, c2: Contaminent, c1Coverage: number, c2
     console.log("Please set at least one contaminent!");
     return null;
   }
+  //Coverage above 100%
   if (c1Coverage + c2Coverage > 100) {
     console.log("Too much contamination!");
     return { code: "Coverage is above 100%", maxCrosswind: "Coverage is above 100%", callDxp: false };
   }
+  //No coverage
   if (c1Coverage === undefined && c2Coverage === undefined) {
     console.log("Please set at least one coverage");
     return null;
