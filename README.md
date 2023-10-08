@@ -66,7 +66,7 @@ test('adds 1 + 2 to equal 3', () => {
 
 ### Project infos
 
-## Directories
+#### Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
 | . | 20 | 5,520 | 149 | 76 | 5,745 |
