@@ -4,11 +4,14 @@ import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import PropTypes from "prop-types";
 
 /**
- *
+ * Returns a Listbox component
  * @param {Array} choices - An array of choices
  * @param {Function} callback - Parent component callback
- * @param {String} width - tailwind width, w-72 if undefined
- * @returns
+ * @param {String} [width='w-72'] width - tailwind width, w-72 if undefined
+ * @param {String} [dropdownWidth='w-full'] dropdownWidth - tailwind width, w-full if undefined. Use to set a different dropdown width
+ * @param {Boolean} reset - Reset the selected choice to index 0 if true
+ * @param {Function} resetCallback - Callback for the parent componenent, used to update the state of the reset
+ * @returns {React.Element}
  */
 export const ChoiceListbox = ({ choices, callback, width, dropdownWidth, reset, resetCallback }) => {
   const [selected, setSelected] = useState(choices[0]);

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ChoiceListbox } from "./Component/ListBox";
 import { Card } from "./Component/Card";
+import { CustomButton } from "./Component/Button";
 import { contaminentGravel, contaminentPaved } from "./utils/contaminent";
 import { rccCalc } from "./utils/rccCalculator";
 
@@ -23,7 +24,7 @@ function App() {
   const [callDxp, setCallDxp] = useState(false);
   const [rccCode, setRccCode] = useState(6);
   const [maxCrosswind, setMaxCrosswind] = useState(36);
-  const [resetListBox1, setResetListBox1] = useState(false);
+  const [resetListBox, setResetListBox] = useState(false);
 
   const aircraftTypeHandler = (v) => {
     console.log(v);
@@ -35,7 +36,7 @@ function App() {
     } else {
       setContaminentList(contaminentGravel);
     }
-    setResetListBox1(true);
+    setResetListBox(true);
     setShowContaminent2(false);
   };
 
@@ -61,8 +62,15 @@ function App() {
   };
 
   const resetListbox1Handler = () => {
-    setResetListBox1(false);
+    setResetListBox(false);
   };
+
+  const resetButtonHandler = () => {
+    setResetListBox(true)
+    setShowContaminent2(false)
+    setRccCode(6)
+    setMaxCrosswind(6)
+  }
 
   useEffect(() => {
     //Debug
@@ -105,10 +113,10 @@ function App() {
                   callback={contaniment1Handler}
                   width={"w-40"}
                   dropdownWidth={"w-96"}
-                  reset={resetListBox1}
+                  reset={resetListBox}
                   resetCallback={resetListbox1Handler}
                 />
-                <ChoiceListbox choices={PERCENTAGE} callback={coverage1Handler} width={"w-28"} reset={resetListBox1} resetCallback={resetListbox1Handler} />
+                <ChoiceListbox choices={PERCENTAGE} callback={coverage1Handler} width={"w-28"} reset={resetListBox} resetCallback={resetListbox1Handler} />
               </div>
             </div>
 
@@ -121,13 +129,17 @@ function App() {
                     callback={contaniment2Handler}
                     width={"w-40"}
                     dropdownWidth={"w-96"}
-                    reset={resetListBox1}
+                    reset={resetListBox}
                     resetCallback={resetListbox1Handler}
                   />
-                  <ChoiceListbox choices={PERCENTAGE} callback={coverage2Handler} width={"w-28"} reset={resetListBox1} resetCallback={resetListbox1Handler} />
+                  <ChoiceListbox choices={PERCENTAGE} callback={coverage2Handler} width={"w-28"} reset={resetListBox} resetCallback={resetListbox1Handler} />
                 </div>
               </div>
             )}
+
+            <div>
+              <CustomButton title={"Reset"} onClickCallback={resetButtonHandler}/>
+            </div>
           </div>
         </Card>
 
