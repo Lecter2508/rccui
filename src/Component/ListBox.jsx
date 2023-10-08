@@ -56,7 +56,7 @@ export const ChoiceListbox = ({ choices, callback, width, dropdownWidth, reset, 
                 >
                   {({ selected }) => (
                     <>
-                      <span className={`block truncate ${selected ? "font-medium" : "font-normal"}`}>{choice.description}</span>
+                      <span className={`block text-clip ${selected ? "font-medium" : "font-normal"}`}>{choice.description}</span>
                       {selected ? (
                         <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-blue-600">
                           <CheckIcon className="h-5 w-5" aria-hidden="true" />

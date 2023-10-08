@@ -66,11 +66,12 @@ function App() {
   };
 
   const resetButtonHandler = () => {
-    setResetListBox(true)
-    setShowContaminent2(false)
-    setRccCode(6)
-    setMaxCrosswind(6)
-  }
+    setResetListBox(true);
+    setShowContaminent2(false);
+    setRccCode(6);
+    setMaxCrosswind(6);
+    setCallDxp(false);
+  };
 
   useEffect(() => {
     //Debug
@@ -112,7 +113,7 @@ function App() {
                   choices={contaminentList}
                   callback={contaniment1Handler}
                   width={"w-40"}
-                  dropdownWidth={"w-96"}
+                  dropdownWidth={"w-72"}
                   reset={resetListBox}
                   resetCallback={resetListbox1Handler}
                 />
@@ -128,7 +129,7 @@ function App() {
                     choices={contaminentList}
                     callback={contaniment2Handler}
                     width={"w-40"}
-                    dropdownWidth={"w-96"}
+                    dropdownWidth={"w-72"}
                     reset={resetListBox}
                     resetCallback={resetListbox1Handler}
                   />
@@ -137,8 +138,8 @@ function App() {
               </div>
             )}
 
-            <div>
-              <CustomButton title={"Reset"} onClickCallback={resetButtonHandler}/>
+            <div className="p-2">
+              <CustomButton title={"Reset Contaminent(s)"} onClickCallback={resetButtonHandler} />
             </div>
           </div>
         </Card>
@@ -155,7 +156,13 @@ function App() {
                 {maxCrosswind} {typeof maxCrosswind === "string" ? "" : "kts"}
               </div>
             </div>
-            {callDxp && <div className="flex flex-row bg-red-500 rounded-md p-2 text-white">Please contact dispatch!</div>}
+            {callDxp && (
+              <div className="flex flex-row bg-red-500 rounded-md p-2 text-white justify-center">
+                {" "}
+                {/* //! Phone number is not set */}
+                <a href="tel:+1234567890">Please contact dispatch!</a>
+              </div>
+            )}
           </div>
         </Card>
       </div>
