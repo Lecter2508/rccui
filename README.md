@@ -38,3 +38,28 @@ nano package.json
 cd /path/of/project
 npm run test
 ```
+
+### Vitest to write better code
+
+To create a test file, add `.test.js` after the file name.
+
+[Vitest doc](https://vitest.dev/)
+
+Quick example :
+
+```code
+// sum.js
+export function sum(a, b) {
+  return a + b
+}
+```
+
+```code
+// sum.test.js
+import { expect, test } from 'vitest'
+import { sum } from './sum'
+
+test('adds 1 + 2 to equal 3', () => {
+  expect(sum(1, 2)).toBe(3)
+})
+```
