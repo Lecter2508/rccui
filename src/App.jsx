@@ -1,28 +1,86 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChoiceListbox } from "./Component/ListBox";
 import { Card } from "./Component/Card";
+import { contaminentGravel, contaminentPaved } from "./utils/contaminent";
+import { rccCalc } from "./utils/rccCalculator";
 
-const AIRCRAFTTYPES = ["DHC-8", "HS748"];
-const RUNWAYTYPE = ["Asphalt", "Gravel"];
-const CONTAMINENT1 = ["Select...", ...Array.from({ length: 11 }, (_, index) => `Choice ${index}`)];
-const CONTAMINENT2 = ["Select...", ...Array.from({ length: 11 }, (_, index) => `Choice ${index}`)];
-const PERCENTAGE = Array.from({ length: 11 }, (_, index) => `${index * 10} %`);
+const AIRCRAFTTYPES = [{ description: "DHC-8" }, { description: "HS748" }];
+const RUNWAYTYPE = [{ description: "Asphalt" }, { description: "Gravel" }];
+const PERCENTAGE = [...Array.from({ length: 11 }, (_, index) => index * 10), ...[25, 75]]
+  .sort((a, b) => a - b)
+  .map((v) => {
+    return { description: v + " %" };
+  });
 
 function App() {
-  const [showAlert] = useState(false);
-  //TODO Set all the callbacks from ChoiceListBox components and state to update the interface
+  const [runwayType] = useState(RUNWAYTYPE[0]);
+  const [contaminentList, setContaminentList] = useState(contaminentPaved);
+  const [contaminent1, setContaminent1] = useState(undefined);
+  const [contaminent2, setContaminent2] = useState(undefined);
+  const [coverage1, setCoverage1] = useState(0);
+  const [coverage2, setCoverage2] = useState(0);
   const [showContaminent2, setShowContaminent2] = useState(false);
-  const [callDxp] = useState(null);
+  const [callDxp, setCallDxp] = useState(false);
+  const [rccCode, setRccCode] = useState(6);
+  const [maxCrosswind, setMaxCrosswind] = useState(36);
+  const [resetListBox1, setResetListBox1] = useState(false);
+
+  const aircraftTypeHandler = (v) => {
+    console.log(v);
+  };
+
+  const runwayTypeHandler = (v) => {
+    if (v.description === "Asphalt") {
+      setContaminentList(contaminentPaved);
+    } else {
+      setContaminentList(contaminentGravel);
+    }
+    setResetListBox1(true);
+    setShowContaminent2(false);
+  };
 
   const contaniment1Handler = (v) => {
-    console.log(v);
     if (v === "Select...") {
       setShowContaminent2(false);
     } else {
       setShowContaminent2(true);
     }
-    //TODO insert rest of the logic
+    setContaminent1(v);
   };
+
+  const coverage1Handler = (v) => {
+    setCoverage1(Number(v.description.replace("%", "")));
+  };
+
+  const contaniment2Handler = (v) => {
+    setContaminent2(v);
+  };
+
+  const coverage2Handler = (v) => {
+    setCoverage2(Number(v.description.replace("%", "")));
+  };
+
+  const resetListbox1Handler = () => {
+    setResetListBox1(false);
+  };
+
+  useEffect(() => {
+    //Debug
+    // console.log("Coverage 1: ", coverage1);
+    // console.log("Coverage 2: ", coverage2);
+    // console.log("Runway type: ", runwayType);
+    // console.log("Contaminent 1: ", contaminent1);
+    // console.log("Contaminent 2: ", contaminent2);
+    let rcc = rccCalc(contaminent1, contaminent2, coverage1, coverage2);
+    if (rcc === null) {
+      setRccCode(6);
+      setMaxCrosswind(36);
+    } else {
+      setRccCode(rcc.code);
+      setMaxCrosswind(rcc.maxCrosswind);
+      setCallDxp(rcc.callDxp);
+    }
+  }, [coverage1, coverage2, runwayType, contaminent1, contaminent2]);
 
   return (
     <div className="grid h-screen md:place-items-center bg-gray-100 justify-center">
@@ -31,19 +89,26 @@ function App() {
           <div>
             <div className="flex flex-row justify-between items-center p-2">
               <div>Aircraft type: </div>
-              <ChoiceListbox choices={AIRCRAFTTYPES} />
+              <ChoiceListbox choices={AIRCRAFTTYPES} callback={aircraftTypeHandler} />
             </div>
 
             <div className="flex flex-row justify-between items-center p-2">
               <div>Runway type: </div>
-              <ChoiceListbox choices={RUNWAYTYPE} />
+              <ChoiceListbox choices={RUNWAYTYPE} callback={runwayTypeHandler} />
             </div>
 
             <div className="flex flex-row justify-between items-center p-2">
               <div>Contaminent 1: </div>
               <div className="flex flex-row gap-4">
-                <ChoiceListbox choices={CONTAMINENT1} callback={contaniment1Handler} width={"w-40"} />
-                <ChoiceListbox choices={PERCENTAGE} width={"w-28"} />
+                <ChoiceListbox
+                  choices={contaminentList}
+                  callback={contaniment1Handler}
+                  width={"w-40"}
+                  dropdownWidth={"w-96"}
+                  reset={resetListBox1}
+                  resetCallback={resetListbox1Handler}
+                />
+                <ChoiceListbox choices={PERCENTAGE} callback={coverage1Handler} width={"w-28"} reset={resetListBox1} resetCallback={resetListbox1Handler} />
               </div>
             </div>
 
@@ -51,25 +116,34 @@ function App() {
               <div className="flex flex-row justify-between items-center p-2 mb-2">
                 <div>Contaminent 2: </div>
                 <div className="flex flex-row gap-4">
-                  <ChoiceListbox choices={CONTAMINENT2} width={"w-40"} />
-                  <ChoiceListbox choices={PERCENTAGE} width={"w-28"} />
+                  <ChoiceListbox
+                    choices={contaminentList}
+                    callback={contaniment2Handler}
+                    width={"w-40"}
+                    dropdownWidth={"w-96"}
+                    reset={resetListBox1}
+                    resetCallback={resetListbox1Handler}
+                  />
+                  <ChoiceListbox choices={PERCENTAGE} callback={coverage2Handler} width={"w-28"} reset={resetListBox1} resetCallback={resetListbox1Handler} />
                 </div>
               </div>
             )}
           </div>
         </Card>
 
-        <Card cardTitle={"Results"} status={callDxp}>
+        <Card cardTitle={"Results"} status={null}>
           <div>
             <div className="flex flex-row justify-between p-2">
               <div>RCC code:</div>
-              <div>0</div>
+              <div>{rccCode}</div>
             </div>
             <div className="flex flex-row justify-between p-2">
               <div>Max crosswind:</div>
-              <div>0 kts</div>
+              <div>
+                {maxCrosswind} {typeof maxCrosswind === "string" ? "" : "kts"}
+              </div>
             </div>
-            {showAlert && <div className="flex flex-row bg-red-500 rounded-md p-2 text-white">Please contact dispatch</div>}
+            {callDxp && <div className="flex flex-row bg-red-500 rounded-md p-2 text-white">Please contact dispatch!</div>}
           </div>
         </Card>
       </div>

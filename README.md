@@ -15,3 +15,21 @@ cd /path/of/project
 npm i
 npm run dev
 ```
+
+### How to update after a breaking change 😱
+
+It's always a good idea to run the install command from the package manager when new package have been installed.
+
+To see if new package have been installed, consult the package.json for any changes.
+
+```code
+cd /path/of/project
+npm i
+```
+
+### How to test the rccCalculator function 🤓
+
+```code
+cd /path/of/project
+npm run test
+```
