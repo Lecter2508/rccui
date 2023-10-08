@@ -9,6 +9,7 @@ test("Testing exceptions", () => {
 });
 
 test("Testing calculations", () => {
-  expect(rccCalc(contaminentGravel[1], contaminentGravel[6], 40, 40).code).toBe(0);
   expect(rccCalc(contaminentGravel[1], contaminentGravel[6], 20, 20).code).toBe(3);
+  expect(rccCalc(contaminentGravel[1], contaminentGravel[6], 25, 25).code).toBe(3);
+  expect(rccCalc(contaminentGravel[1], contaminentGravel[6], 40, 40).code).toBe(0);
 });

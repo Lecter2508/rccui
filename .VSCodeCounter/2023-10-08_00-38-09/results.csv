@@ -1,0 +1,22 @@
+"filename", "language", "HTML", "JavaScript", "JavaScript JSX", "PostCSS", "TypeScript", "JSON", "XML", "Markdown", "comment", "blank", "total"
+"/Users/olivier/Code/creebecProject/uitest/rccui/.eslintrc.cjs", "JavaScript", 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 21
+"/Users/olivier/Code/creebecProject/uitest/rccui/README.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 46, 0, 20, 66
+"/Users/olivier/Code/creebecProject/uitest/rccui/index.html", "HTML", 13, 0, 0, 0, 0, 0, 0, 0, 0, 1, 14
+"/Users/olivier/Code/creebecProject/uitest/rccui/package-lock.json", "JSON", 0, 0, 0, 0, 0, 5003, 0, 0, 0, 1, 5004
+"/Users/olivier/Code/creebecProject/uitest/rccui/package.json", "JSON", 0, 0, 0, 0, 0, 34, 0, 0, 0, 1, 35
+"/Users/olivier/Code/creebecProject/uitest/rccui/postcss.config.js", "JavaScript", 0, 6, 0, 0, 0, 0, 0, 0, 0, 1, 7
+"/Users/olivier/Code/creebecProject/uitest/rccui/public/vite.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1
+"/Users/olivier/Code/creebecProject/uitest/rccui/src/App.css", "PostCSS", 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/Users/olivier/Code/creebecProject/uitest/rccui/src/App.jsx", "JavaScript JSX", 0, 0, 132, 0, 0, 0, 0, 0, 6, 17, 155
+"/Users/olivier/Code/creebecProject/uitest/rccui/src/Component/Card.jsx", "JavaScript JSX", 0, 0, 31, 0, 0, 0, 0, 0, 8, 4, 43
+"/Users/olivier/Code/creebecProject/uitest/rccui/src/Component/ListBox.jsx", "JavaScript JSX", 0, 0, 69, 0, 0, 0, 0, 0, 7, 6, 82
+"/Users/olivier/Code/creebecProject/uitest/rccui/src/Component/NavBar.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 0, 0, 0, 118, 8, 126
+"/Users/olivier/Code/creebecProject/uitest/rccui/src/assets/react.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1
+"/Users/olivier/Code/creebecProject/uitest/rccui/src/index.css", "PostCSS", 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 3
+"/Users/olivier/Code/creebecProject/uitest/rccui/src/main.jsx", "JavaScript JSX", 0, 0, 9, 0, 0, 0, 0, 0, 0, 2, 11
+"/Users/olivier/Code/creebecProject/uitest/rccui/src/utils/contaminent.ts", "TypeScript", 0, 0, 0, 0, 46, 0, 0, 0, 0, 3, 49
+"/Users/olivier/Code/creebecProject/uitest/rccui/src/utils/rccCalculator.test.js", "JavaScript", 0, 13, 0, 0, 0, 0, 0, 0, 0, 3, 16
+"/Users/olivier/Code/creebecProject/uitest/rccui/src/utils/rccCalculator.ts", "TypeScript", 0, 0, 0, 0, 81, 0, 0, 0, 8, 4, 93
+"/Users/olivier/Code/creebecProject/uitest/rccui/tailwind.config.js", "JavaScript", 0, 7, 0, 0, 0, 0, 0, 0, 1, 1, 9
+"/Users/olivier/Code/creebecProject/uitest/rccui/vite.config.js", "JavaScript", 0, 5, 0, 0, 0, 0, 0, 0, 1, 2, 8
+"Total", "-", 13, 51, 241, 3, 127, 5037, 2, 46, 149, 76, 5745

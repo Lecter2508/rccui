@@ -1,0 +1,58 @@
+Date : 2023-10-08 00:38:09
+Directory : /Users/olivier/Code/creebecProject/uitest/rccui
+Total : 20 files,  5520 codes, 149 comments, 76 blanks, all 5745 lines
+
+Languages
++----------------+------------+------------+------------+------------+------------+
+| language       | files      | code       | comment    | blank      | total      |
++----------------+------------+------------+------------+------------+------------+
+| JSON           |          2 |      5,037 |          0 |          2 |      5,039 |
+| JavaScript JSX |          5 |        241 |        139 |         37 |        417 |
+| TypeScript     |          2 |        127 |          8 |          7 |        142 |
+| JavaScript     |          5 |         51 |          2 |          8 |         61 |
+| Markdown       |          1 |         46 |          0 |         20 |         66 |
+| HTML           |          1 |         13 |          0 |          1 |         14 |
+| PostCSS        |          2 |          3 |          0 |          1 |          4 |
+| XML            |          2 |          2 |          0 |          0 |          2 |
++----------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                            | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                               |         20 |      5,520 |        149 |         76 |      5,745 |
+| . (Files)                                                                       |          8 |      5,134 |          2 |         28 |      5,164 |
+| public                                                                          |          1 |          1 |          0 |          0 |          1 |
+| src                                                                             |         11 |        385 |        147 |         48 |        580 |
+| src (Files)                                                                     |          4 |        144 |          6 |         20 |        170 |
+| src/Component                                                                   |          3 |        100 |        133 |         18 |        251 |
+| src/assets                                                                      |          1 |          1 |          0 |          0 |          1 |
+| src/utils                                                                       |          3 |        140 |          8 |         10 |        158 |
++---------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| filename                                                                        | language       | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| /Users/olivier/Code/creebecProject/uitest/rccui/.eslintrc.cjs                   | JavaScript     |         20 |          0 |          1 |         21 |
+| /Users/olivier/Code/creebecProject/uitest/rccui/README.md                       | Markdown       |         46 |          0 |         20 |         66 |
+| /Users/olivier/Code/creebecProject/uitest/rccui/index.html                      | HTML           |         13 |          0 |          1 |         14 |
+| /Users/olivier/Code/creebecProject/uitest/rccui/package-lock.json               | JSON           |      5,003 |          0 |          1 |      5,004 |
+| /Users/olivier/Code/creebecProject/uitest/rccui/package.json                    | JSON           |         34 |          0 |          1 |         35 |
+| /Users/olivier/Code/creebecProject/uitest/rccui/postcss.config.js               | JavaScript     |          6 |          0 |          1 |          7 |
+| /Users/olivier/Code/creebecProject/uitest/rccui/public/vite.svg                 | XML            |          1 |          0 |          0 |          1 |
+| /Users/olivier/Code/creebecProject/uitest/rccui/src/App.css                     | PostCSS        |          0 |          0 |          1 |          1 |
+| /Users/olivier/Code/creebecProject/uitest/rccui/src/App.jsx                     | JavaScript JSX |        132 |          6 |         17 |        155 |
+| /Users/olivier/Code/creebecProject/uitest/rccui/src/Component/Card.jsx          | JavaScript JSX |         31 |          8 |          4 |         43 |
+| /Users/olivier/Code/creebecProject/uitest/rccui/src/Component/ListBox.jsx       | JavaScript JSX |         69 |          7 |          6 |         82 |
+| /Users/olivier/Code/creebecProject/uitest/rccui/src/Component/NavBar.jsx        | JavaScript JSX |          0 |        118 |          8 |        126 |
+| /Users/olivier/Code/creebecProject/uitest/rccui/src/assets/react.svg            | XML            |          1 |          0 |          0 |          1 |
+| /Users/olivier/Code/creebecProject/uitest/rccui/src/index.css                   | PostCSS        |          3 |          0 |          0 |          3 |
+| /Users/olivier/Code/creebecProject/uitest/rccui/src/main.jsx                    | JavaScript JSX |          9 |          0 |          2 |         11 |
+| /Users/olivier/Code/creebecProject/uitest/rccui/src/utils/contaminent.ts        | TypeScript     |         46 |          0 |          3 |         49 |
+| /Users/olivier/Code/creebecProject/uitest/rccui/src/utils/rccCalculator.test.js | JavaScript     |         13 |          0 |          3 |         16 |
+| /Users/olivier/Code/creebecProject/uitest/rccui/src/utils/rccCalculator.ts      | TypeScript     |         81 |          8 |          4 |         93 |
+| /Users/olivier/Code/creebecProject/uitest/rccui/tailwind.config.js              | JavaScript     |          7 |          1 |          1 |          9 |
+| /Users/olivier/Code/creebecProject/uitest/rccui/vite.config.js                  | JavaScript     |          5 |          1 |          2 |          8 |
+| Total                                                                           |                |      5,520 |        149 |         76 |      5,745 |
++---------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+

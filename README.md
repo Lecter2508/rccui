@@ -63,3 +63,17 @@ test('adds 1 + 2 to equal 3', () => {
   expect(sum(1, 2)).toBe(3)
 })
 ```
+
+### Project infos
+
+## Directories
+| path | files | code | comment | blank | total |
+| :--- | ---: | ---: | ---: | ---: | ---: |
+| . | 20 | 5,520 | 149 | 76 | 5,745 |
+| . (Files) | 8 | 5,134 | 2 | 28 | 5,164 |
+| public | 1 | 1 | 0 | 0 | 1 |
+| src | 11 | 385 | 147 | 48 | 580 |
+| src (Files) | 4 | 144 | 6 | 20 | 170 |
+| src/Component | 3 | 100 | 133 | 18 | 251 |
+| src/assets | 1 | 1 | 0 | 0 | 1 |
+| src/utils | 3 | 140 | 8 | 10 | 158 |
