@@ -7,7 +7,7 @@ import { rccCalc } from "./utils/rccCalculator";
 
 const AIRCRAFTTYPES = [{ description: "DHC-8" }, { description: "HS748" }];
 const RUNWAYTYPE = [{ description: "Asphalt" }, { description: "Gravel" }];
-const PERCENTAGE = [...Array.from({ length: 11 }, (_, index) => index * 10), ...[25, 75]]
+const PERCENTAGE = [...Array.from({ length: 11 }, (_, index) => index * 10), ...[25, 75]] //TODO rename to COVERAGE to keep a standard naming convention
   .sort((a, b) => a - b)
   .map((v) => {
     return { description: v + " %" };
@@ -50,7 +50,7 @@ function App() {
   };
 
   const coverage1Handler = (v) => {
-    setCoverage1(Number(v.description.replace("%", "")));
+    setCoverage1(Number(v.description.replace("%", ""))); //TODO code can be simplified by changing PERCENTAGE structure to : [{description:"10 %", value:10},...] and then using v.value
   };
 
   const contaniment2Handler = (v) => {
@@ -58,7 +58,7 @@ function App() {
   };
 
   const coverage2Handler = (v) => {
-    setCoverage2(Number(v.description.replace("%", "")));
+    setCoverage2(Number(v.description.replace("%", ""))); //TODO code can be simplified by changing PERCENTAGE structure to : [{description:"10 %", value:10},...] and then using v.value
   };
 
   const resetListbox1Handler = () => {
@@ -98,7 +98,7 @@ function App() {
   return (
     <div className="grid h-screen md:place-items-center bg-gray-100 justify-center">
       <div className="container mx-auto pt-10 md:pt-0 bg-gray-100">
-        <Card cardTitle={"Calculator"} status={null}>
+        <Card cardTitle={"RCC Calculator"} status={null}>
           <div>
             <div className="flex flex-row justify-between items-center p-2">
               <div>Aircraft type: </div>
@@ -148,7 +148,7 @@ function App() {
           </div>
         </Card>
 
-        <Card cardTitle={"Results"} status={null}>
+        <Card cardTitle={"RCC Results"} status={null}>
           <div>
             <div className="flex flex-row justify-between p-2">
               <div>RCC code:</div>
@@ -161,7 +161,7 @@ function App() {
               </div>
             </div>
             {callDxp && (
-              <div className="flex flex-row bg-red-500 rounded-md p-2 text-white justify-center">
+              <div className="flex flex-row bg-red-500 rounded-md p-2 mx-1 text-white justify-center">
                 {" "}
                 {/* //! Phone number is not set */}
                 <a href="tel:+1234567890">Please contact dispatch!</a>
