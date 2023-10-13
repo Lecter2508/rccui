@@ -25,6 +25,8 @@ function App() {
   const [rccCode, setRccCode] = useState(6);
   const [maxCrosswind, setMaxCrosswind] = useState(36);
   const [resetListBox, setResetListBox] = useState(false);
+  //Testing
+  const [specialCase, setSpecialCase] = useState({description:"0%"})
 
   const aircraftTypeHandler = (v) => {
     console.log(v);
@@ -41,8 +43,10 @@ function App() {
   };
 
   const contaniment1Handler = (v) => {
-    if (v === "Select...") {
+    //console.log(v)
+    if (v === "Select..." || v.description.includes("100%")) {
       setShowContaminent2(false);
+      setSpecialCase({description:"100 %"})
     } else {
       setShowContaminent2(true);
     }
@@ -79,7 +83,7 @@ function App() {
 
   useEffect(() => {
     //Debug
-    // console.log("Coverage 1: ", coverage1);
+    //console.log("Coverage 1: ", coverage1);
     // console.log("Coverage 2: ", coverage2);
     // console.log("Runway type: ", runwayType);
     // console.log("Contaminent 1: ", contaminent1);
@@ -121,7 +125,7 @@ function App() {
                   reset={resetListBox}
                   resetCallback={resetListbox1Handler}
                 />
-                <ChoiceListbox choices={PERCENTAGE} callback={coverage1Handler} width={"w-28"} reset={resetListBox} resetCallback={resetListbox1Handler} />
+                <ChoiceListbox choices={PERCENTAGE} callback={coverage1Handler} width={"w-28"} reset={resetListBox} resetCallback={resetListbox1Handler} setSelectedValue={specialCase}/>
               </div>
             </div>
 

@@ -13,13 +13,20 @@ import PropTypes from "prop-types";
  * @param {Function} resetCallback - Callback for the parent componenent, used to update the state of the reset
  * @returns {React.Element}
  */
-export const ChoiceListbox = ({ choices, callback, width, dropdownWidth, reset, resetCallback }) => {
+export const ChoiceListbox = ({ choices, callback, width, dropdownWidth, reset, resetCallback, setSelectedValue }) => {
   const [selected, setSelected] = useState(choices[0]);
 
   const changeHandler = (v) => {
     setSelected(v);
     callback(v);
   };
+
+  useEffect(() => {
+    console.log("Checking set selected value from ChoiceListbox", setSelectedValue);
+    if (setSelectedValue !== undefined) {
+      setSelected(setSelectedValue);
+    }
+  }, [setSelectedValue]);
 
   useEffect(() => {
     if (reset) {
@@ -81,4 +88,5 @@ ChoiceListbox.propTypes = {
   dropdownWidth: PropTypes.string,
   reset: PropTypes.bool,
   resetCallback: PropTypes.func,
+  setSelectedValue: PropTypes.object,
 };
